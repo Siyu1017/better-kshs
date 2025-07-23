@@ -87,6 +87,14 @@ const menuItems = {
             }
         ]
     },
+    "privacy": {
+        "title": "隱私權政策",
+        "link": "/privacy"
+    },
+    "terms": {
+        "title": "服務條款",
+        "link": "/terms"
+    }
     /*
     "faculty-and-staff": {
         "title": "教職專區",

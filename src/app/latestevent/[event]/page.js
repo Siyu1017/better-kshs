@@ -20,7 +20,7 @@ export default async function Page({ params }) {
         <div className={styles.pageWithSidebar}>
             <Sidebar category="latestevent" path={`/latestevent/${resolvedParams.event}`}></Sidebar>
             <div className={styles.content}>
-                <LatestEvent items={items} pageData={pageData} />
+                <LatestEvent items={items} pageData={pageData} url={pageData.url + ',,,,,,,,' + (pagination - 1)} />
                 <Pagination basePath={`/latestevent/${resolvedParams.event}`} max={range[1]} current={pagination}></Pagination>
             </div>
         </div>

@@ -1,0 +1,18 @@
+.p {
+    margin: .5rem 0 1rem;
+    line-height: 1.5;
+}
+
+.heading2 {
+    margin-top: .75rem;
+    margin-bottom: 1rem;
+}
+
+.ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.li {
+    margin-bottom: .5rem;
+}

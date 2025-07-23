@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "@/styles/page.default.module.css";
 
-export default async function LatestEvent({ range, currentPage, items, pageData }) {
+export default async function LatestEvent({ range, currentPage, items, pageData, url }) {
     try {
         return (
             <>
@@ -18,6 +18,9 @@ export default async function LatestEvent({ range, currentPage, items, pageData 
                         </Link>)
                     })}
                 </div>
+                <div className={styles.origin}>
+                    資料來源：<Link href={url} target="_blank" style={{ textDecoration: 'underline' }}>高雄市立高雄高級中學</Link>
+                </div >
             </>
         )
     } catch (err) {

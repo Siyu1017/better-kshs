@@ -68,6 +68,12 @@
     transform: rotate(30deg) translate(5px, 1px);
 }
 
+.origin {
+    text-align: right;
+    margin-top: 1rem;
+    color: var(--text-color-2);
+}
+
 @media screen and (max-width: 992px) {
     .page,
     .pageWithSidebar {

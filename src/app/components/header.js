@@ -7,7 +7,7 @@ import styles from "./header.module.css";
 import { useMediaQuery } from 'react-responsive';
 import items from "@/lib/menuItems.js";
 
-const menuItems = Object.values(items);
+const menuItems = Object.values(items).filter(item => ['/privacy', '/terms'].includes(item.link) ? false : true);
 
 export default function Header({ title, onOpenMenu }) {
     const [scrolled, setScrolled] = useState(false);
