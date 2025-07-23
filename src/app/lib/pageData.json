@@ -1,0 +1,261 @@
+[
+    {
+        "title": "學生訊息",
+        "parser": "9,3,21",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,3,21"
+    },
+    {
+        "title": "教職員訊息",
+        "parser": "9,3,38",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,3,38"
+    },
+    {
+        "title": "升學資訊",
+        "parser": "9,3,39",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,3,39"
+    },
+    {
+        "title": "考試資訊",
+        "parser": "9,3,41",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,3,41"
+    },
+    {
+        "title": "榮譽榜",
+        "parser": "9,3,40",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,3,40"
+    },
+    {
+        "title": "行事曆",
+        "parser": "1,3,42",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,3,42"
+    },
+    {
+        "title": "校務行政系統",
+        "parser": "1,8,47",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,8,47"
+    },
+    {
+        "title": "校園資訊服務(另開視窗)",
+        "link": "https://webap1.kshs.kh.edu.tw/kshsSSO/"
+    },
+    {
+        "title": "學生電子信箱(另開視窗)",
+        "link": "https://mail.google.com/a/student.kshs.kh.edu.tw"
+    },
+    {
+        "title": "學聯會(另開視窗)",
+        "link": "https://kssasite.com/index.php"
+    },
+    {
+        "title": "營隊活動",
+        "parser": "22,25,105,,,,,34",
+        "link": "https://www.kshs.kh.edu.tw/sub/latestevent/index?Parser=22,25,105,,,,,34"
+    },
+    {
+        "title": "圖書查詢(另開視窗)",
+        "link": "https://library.kshs.kh.edu.tw/opac850/"
+    },
+    {
+        "title": "學生申訴專區",
+        "parser": "2,25,223",
+        "link": "https://www.kshs.kh.edu.tw/sub/form/index?Parser=2,25,223"
+    },
+    {
+        "title": "課程地圖",
+        "parser": "2,8,43",
+        "link": "https://www.kshs.kh.edu.tw/form/index?Parser=2,8,43"
+    },
+    {
+        "title": "教學資源",
+        "parser": "11,8,246",
+        "link": "https://www.kshs.kh.edu.tw/links/index?Parser=11,8,246"
+    },
+    {
+        "title": "新生專區",
+        "parser": "9,8,264",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=9,8,264"
+    },
+    {
+        "title": "校長室",
+        "parser": "1,5,157",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,5,157"
+    },
+    {
+        "title": "教務處(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=22"
+    },
+    {
+        "title": "學務處(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=23"
+    },
+    {
+        "title": "總務處(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=24"
+    },
+    {
+        "title": "輔導處(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=25"
+    },
+    {
+        "title": "圖書館(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=26"
+    },
+    {
+        "title": "人事室(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=27"
+    },
+    {
+        "title": "會計室(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=28"
+    },
+    {
+        "title": "軍訓室(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=29"
+    },
+    {
+        "title": "國際教育交流中心(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=30"
+    },
+    {
+        "title": "資訊中心(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=31"
+    },
+    {
+        "title": "系統服務",
+        "parser": "11,6,261",
+        "link": "https://www.kshs.kh.edu.tw/links/index?Parser=11,6,261"
+    },
+    {
+        "title": "校務章則彙編",
+        "parser": "1,6,51",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,6,51"
+    },
+    {
+        "title": "學科網站",
+        "parser": "11,6,247",
+        "link": "https://www.kshs.kh.edu.tw/links/index?Parser=11,6,247"
+    },
+    {
+        "title": "各項會議紀錄(另開視窗)",
+        "link": "https://portal.kh.edu.tw/"
+    },
+    {
+        "title": "專案計劃",
+        "parser": "2,9,26,203",
+        "link": "https://www.kshs.kh.edu.tw/form/index?Parser=2,9,26,203"
+    },
+    {
+        "title": "科學班(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=34"
+    },
+    {
+        "title": "化學學科中心",
+        "parser": "2,9,26,203",
+        "link": "https://www.kshs.kh.edu.tw/form/index?Parser=2,9,26,203"
+    },
+    {
+        "title": "新課綱專區",
+        "parser": "22,9,242,58",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=22,9,242,58"
+    },
+    {
+        "title": "最新消息",
+        "parser": "22,9,242,58",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=22,9,242,58"
+    },
+    {
+        "title": "自主學習",
+        "parser": "22,9,245,58",
+        "link": "https://www.kshs.kh.edu.tw/latestevent/index?Parser=22,9,245,58"
+    },
+    {
+        "title": "相關法令(另開視窗)",
+        "link": "https://www.k12ea.gov.tw/Tw/Common/SinglePage?filter=11C2C6C1-D64E-475E-916B-D20C83896343"
+    },
+    {
+        "title": "資源連結",
+        "parser": "11,9,244,58",
+        "link": "https://www.kshs.kh.edu.tw/links/index?Parser=11,9,244,58"
+    },
+    {
+        "title": "協力單位",
+        "parser": "0,9,59",
+        "link": "https://www.kshs.kh.edu.tw/sitemap/submenu2?Parser=0,9,59"
+    },
+    {
+        "title": "家長會(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=32"
+    },
+    {
+        "title": "教師會(另開視窗)",
+        "link": "https://www.kshs.kh.edu.tw/sub/index?m1=33"
+    },
+    {
+        "title": "校友會(另開視窗)",
+        "link": "http://www.kshsaa.org.tw/"
+    },
+    {
+        "title": "捐款專區",
+        "parser": "2,9,120",
+        "link": "https://www.kshs.kh.edu.tw/form/index?Parser=2,9,120"
+    },
+    {
+        "title": "學校概況",
+        "parser": "1,4,22",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,4,22"
+    },
+    {
+        "title": "校史沿革",
+        "parser": "1,4,64",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,4,64"
+    },
+    {
+        "title": "聯絡資訊",
+        "parser": "1,4,66",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,4,66"
+    },
+    {
+        "title": "交通位置",
+        "parser": "1,4,67",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,4,67"
+    },
+    {
+        "title": "校歌校徽",
+        "parser": "1,4,68",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,4,68"
+    },
+    {
+        "title": "高雄中學校史網(另開視窗)",
+        "link": "http://web.kshs.kh.edu.tw/school_history/index.html"
+    },
+    {
+        "title": "校園刊物",
+        "parser": "2,4,24",
+        "link": "https://www.kshs.kh.edu.tw/form/index?Parser=2,4,24"
+    },
+    {
+        "title": "校園相簿",
+        "parser": "16,4,25",
+        "link": "https://www.kshs.kh.edu.tw/gallery/index?Parser=16,4,25"
+    },
+    {
+        "title": "網站導覽",
+        "parser": "99,10,27",
+        "link": "https://www.kshs.kh.edu.tw/sitemap/index?Parser=99,10,27"
+    },
+    {
+        "title": "全文檢索",
+        "parser": "99,10,28",
+        "link": "https://www.kshs.kh.edu.tw/search/index?Parser=99,10,28"
+    },
+    {
+        "title": "隱私權保護政策",
+        "parser": "1,10,69",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,10,69"
+    },
+    {
+        "title": "網站安全政策",
+        "parser": "1,10,70",
+        "link": "https://www.kshs.kh.edu.tw/content/index?Parser=1,10,70"
+    }
+]

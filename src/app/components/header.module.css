@@ -1,0 +1,216 @@
+.header {
+    height: var(--header-height);
+    display: flex;
+    padding: 0 var(--padding-h);
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    background: var(--background);
+    position: relative;
+}
+
+.scrolled {
+    box-shadow: 0px 1px 0px 0px var(--border-color);
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.headerTitle {
+    font-size: 1.125rem;
+    font-weight: normal;
+    color: var(--text-color-1);
+    font-family: var(--font-header);
+}
+
+.headerMenu {
+    display: flex;
+    gap: .5rem;
+}
+
+.menuItem {
+    padding: .375rem .625rem;
+    white-space: nowrap;
+    border-radius: .375rem;
+    color: var(--text-color-2);
+}
+
+.menuItem:hover {
+    background: var(--hover-color);
+    color: var(--text-color-1);
+}
+
+.menuItem.active {
+    color: rgb(var(--primary-color));
+    background: rgba(var(--primary-color), .1);
+    font-weight: bold;
+}
+
+.menuItemTitle {
+    font-size: .935rem;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.github {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.github svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: currentColor;
+}
+
+.hamburger {
+    display: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    transition: all .1s ease-in-out;
+}
+
+.hamburger:hover {
+    background: var(--hover-color);
+    box-shadow: 0px 0px 0px 1px var(--border-color);
+}
+
+.hamburger svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/*************** Mobile Menu **************/
+.mobileMenu {
+    --gap: .5rem;
+    position: fixed;
+    top: var(--header-height);
+    height: calc(100 * var(--vh) - var(--header-height));
+    max-height: calc(100 * var(--vh) - var(--header-height));
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background: var(--background);
+    z-index: 9;
+    border-top: 1px solid var(--border-color);
+    padding: var(--padding-v) var(--padding-h);
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+    overflow: auto;
+    transform: translateY(-150%);
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.mobileMenu.show {
+    transform: translateY(0);
+}
+
+.mobileMenuItem,
+.mobileMenuItemWithSubmenu,
+.mobileMenuItemSubmenuTrigger {
+    padding: var(--gap) 1rem;
+    white-space: nowrap;
+    border-radius: .375rem;
+    color: var(--text-color-2);
+}
+
+.mobileMenuItem:hover,
+.mobileMenuItemSubmenuTrigger:hover {
+    background: var(--hover-color);
+    color: var(--text-color-1);
+}
+
+.mobileMenuItem.active,
+.mobileMenuItemSubmenuTrigger.active {
+    color: rgb(var(--primary-color));
+    background: rgba(var(--primary-color), .1);
+    font-weight: bold;
+}
+
+.mobileMenuItemWithSubmenu {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+
+.mobileMenuItemSubmenuTrigger {
+    margin-left: -1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobileMenuItemTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.125rem;
+}
+
+.mobileMenuItemExpand {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.mobileMenuItemExpandIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: currentColor;
+    transition: all .1s ease-in-out;
+}
+
+.mobileMenuItemSubmenuTrigger.opened .mobileMenuItemExpandIcon {
+    transform: rotate(180deg);
+}
+
+/*************** Submenu ***************/
+.mobileMenuItemSubmenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    position: relative;
+    padding-left: 1.25rem;
+    max-height: 0;
+    height: max-content;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    opacity: 0;
+}
+
+.mobileMenuItemSubmenu.show {
+    max-height: 100%;
+    margin-top: var(--gap);
+    opacity: 1;
+}
+
+.mobileMenuItemSubmenu::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: calc(100% - 2rem);
+    background: var(--border-color);
+    display: block;
+    left: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 992px) {
+    .hamburger {
+        display: flex;
+    }
+}
