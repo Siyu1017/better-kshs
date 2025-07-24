@@ -59,7 +59,9 @@ export default function Header({ title, onOpenMenu }) {
                             return item.submenu ? (
                                 <div className={styles.mobileMenuItemWithSubmenu} key={index}>
                                     <div className={[styles.mobileMenuItemSubmenuTrigger, isActive ? styles.active : '', isOpen ? styles.opened : ''].join(' ')} onClick={() => toggleOpen(index)}>
-                                        <div className={styles.mobileMenuItemTitle}>{item.title}</div>
+                                        <div className={styles.mobileMenuItemTitle}>
+                                            <span>{item.title}</span>
+                                        </div>
                                         <div className={styles.mobileMenuItemExpand}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.mobileMenuItemExpandIcon}>
                                                 <path d="m6 9 6 6 6-6" />
@@ -71,13 +73,15 @@ export default function Header({ title, onOpenMenu }) {
                                             const isActive = pathname.startsWith(subItem.link);
                                             return <Link href={subItem.link || '#'} key={subIndex} onClick={() => setMenuOpened(false)} target={subItem.target || ''}>
                                                 <div className={[styles.mobileMenuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
-                                                    <div className={styles.mobileMenuItemTitle}>{subItem.title}{
-                                                        subItem.target == "_blank" ?
+                                                    <div className={styles.mobileMenuItemTitle}>
+                                                        <span>{subItem.title}</span>
+                                                        {subItem.target == "_blank" ?
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translate(4px, -4px)" }}>
                                                                 <path d="M7 7h10v10" />
                                                                 <path d="M7 17 17 7" />
                                                             </svg>
-                                                            : ''}</div>
+                                                            : ''}
+                                                    </div>
                                                 </div>
                                             </Link>
                                         })}

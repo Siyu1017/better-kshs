@@ -39,7 +39,8 @@ export default function RootLayout({ children }) {
           <Header title={"Better KSHS"}></Header>
           <main>{children}</main>
           <footer>
-            Copyright (c) <a href="https://siyu1017.github.io/" target="_blank">Siyu</a> {new Date().getFullYear()}</footer>
+            <span>Copyright (c) <a href="https://siyu1017.github.io/" target="_blank">Siyu</a> {new Date().getFullYear()}</span>
+          </footer>
         </div>
       </body>
     </html>
