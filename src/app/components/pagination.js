@@ -26,7 +26,7 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
 
     return (
         <div className={styles.pagination}>
-            <button className={styles.button} onClick={() => {
+            <button className={styles.button} aria-label="第一頁" onClick={() => {
                 setPagination(1);
                 router.push(basePath);
             }} disabled={pagination == 1}>
@@ -35,7 +35,7 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
                     <path d="m18 17-5-5 5-5" />
                 </svg>
             </button>
-            <button className={styles.button} onClick={() => {
+            <button className={styles.button} aria-label="上一頁" onClick={() => {
                 if (pagination > 1) {
                     setPagination(pagination - 1)
                     router.push(`${basePath}/${pagination - 1}`);
@@ -55,10 +55,10 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
                     e.target.value = val;
                 }
             }}></input>
-            <button className={styles.button} onClick={go}>
+            <button className={styles.button} aria-label="前往" onClick={go}>
                 <span style={{ padding: '0 .5rem' }}>前往</span>
             </button>
-            <button className={styles.button} onClick={() => {
+            <button className={styles.button} aria-label="下一頁" onClick={() => {
                 if (pagination < max) {
                     setPagination(pagination + 1);
                     router.push(`${basePath}/${pagination + 1}`);
@@ -68,7 +68,7 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
                     <path d="m9 18 6-6-6-6" />
                 </svg>
             </button>
-            <button className={styles.button} onClick={() => {
+            <button className={styles.button} aria-label="最後一頁" onClick={() => {
                 setPagination(max);
                 router.push(`${basePath}/${max}`);
             }} disabled={pagination == max}>
