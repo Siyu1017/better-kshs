@@ -19,7 +19,7 @@ export default async function LatestEvent({ range, currentPage, items, pageData,
                     })}
                 </div>
                 <div className={styles.origin}>
-                    資料來源：<Link href={url} target="_blank" style={{ textDecoration: 'underline' }}>高雄市立高雄高級中學</Link>
+                    資料來源：<Link href={url} target="_blank" style={{ textDecoration: 'underline' }} className={styles.link}>高雄市立高雄高級中學</Link>
                 </div >
             </>
         )

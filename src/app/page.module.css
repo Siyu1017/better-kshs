@@ -7,6 +7,7 @@
     height: 100%;
     display: flex;
     position: absolute;
+    cursor: default;
 }
 
 .hero {
@@ -37,6 +38,10 @@
 .desc {
     color: var(--text-color-1);
     padding-bottom: 2rem;
+}
+
+.link:hover {
+    color: var(--text-color-1);
 }
 
 @media screen and (max-width: 992px) {

@@ -67,6 +67,10 @@ a {
   justify-content: space-between;
 }
 
+.author:hover {
+  color: var(--text-color-1);
+}
+
 header {
   position: sticky;
   left: 0;
@@ -139,4 +143,8 @@ input:focus-visible {
   :root {
     --padding-h: 1.5rem;
   }
+}
+
+*::selection {
+  background: rgba(var(--primary-color), .3);
 }
