@@ -12,6 +12,8 @@
   --header-height: 4rem;
   --padding-h: 8rem;
   --padding-v: 2rem;
+  --vw: 1vw;
+  --vh: 1vh;
 }
 
 @media (prefers-color-scheme: dark) {
