@@ -38,6 +38,7 @@
 .desc {
     color: var(--text-color-1);
     padding-bottom: 2rem;
+    max-width: 90%;
 }
 
 .link:hover {

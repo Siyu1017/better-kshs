@@ -7,12 +7,13 @@
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
-    background: var(--background);
     position: relative;
+    background: none;
 }
 
 .scrolled {
     box-shadow: 0px 1px 0px 0px var(--border-color);
+    background: var(--background);
 }
 
 .headerLeft {

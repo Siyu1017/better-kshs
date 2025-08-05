@@ -22,12 +22,25 @@ export const metadata = {
     default: 'Better KSHS'
   },
   description: '更好的高雄中學校網',
-  applicationName: 'Better KSHS'
+  applicationName: 'Better KSHS',
+}
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ]
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body className={`${headerFont.variable} ${defaultFont.variable}`}>
         <SizeFixer />
         <NextTopLoader
