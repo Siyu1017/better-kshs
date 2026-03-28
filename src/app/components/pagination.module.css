@@ -52,3 +52,50 @@
         width: 4rem;
     }
 }
+
+.button.loading svg, 
+.button.loading span {
+    visibility: hidden;
+}
+
+.simpleLoader {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --duration: 1s;
+    position: absolute;
+    visibility: hidden;
+}
+
+.button.loading .simpleLoader {
+    visibility: visible;
+}
+
+.simpleLoaderBars {
+    position: relative;
+}
+
+.simpleLoaderBar {
+    background: #fff;
+    animation: loader var(--duration) linear infinite;
+    transform-origin: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .1s ease-in-out;
+    border-radius: 99px;
+    width: 1.5px;
+    height: 5px;
+}
+
+@keyframes loader {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -24,23 +24,47 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
         }
     }
 
+    function simpleLoader(n = 8) {
+        return <div className={styles.simpleLoader}>
+            <div className={styles.simpleLoaderBars}>
+                {[...Array(n)].map((_, i) => <div key={i} className={styles.simpleLoaderBar} style={{ animationDelay: `${i / n}s`, transform: `rotate(${i / n * 360}deg) translateY(3px)` }}></div>)}
+            </div>
+        </div>;
+    }
+
+    const [items, setItems] = useState([false, false, false, false, false])
+
+    const setLoading = (id, loading) => {
+        setItems(prev =>
+            prev.map((item, index) =>
+                index === id
+                    ? loading
+                    : item
+            )
+        )
+    }
+
     return (
         <div className={styles.pagination}>
-            <button className={styles.button} aria-label="第一頁" onClick={() => {
+            <button className={`${styles.button} ${items[0] ? styles.loading : ''}`} aria-label="第一頁" onClick={async () => {
                 setPagination(1);
-                router.push(basePath);
+                setLoading(0, true);
+                await router.push(basePath);
             }} disabled={pagination == 1}>
+                {simpleLoader()}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.buttonIcon}>
                     <path d="m11 17-5-5 5-5" />
                     <path d="m18 17-5-5 5-5" />
                 </svg>
             </button>
-            <button className={styles.button} aria-label="上一頁" onClick={() => {
+            <button className={`${styles.button} ${items[1] ? styles.loading : ''}`} aria-label="上一頁" onClick={async () => {
                 if (pagination > 1) {
-                    setPagination(pagination - 1)
-                    router.push(`${basePath}/${pagination - 1}`);
+                    setPagination(pagination - 1);
+                    setLoading(1, true);
+                    await router.push(`${basePath}/${pagination - 1}`);
                 }
             }} disabled={pagination == 1}>
+                {simpleLoader()}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.buttonIcon}>
                     <path d="m15 18-6-6 6-6" />
                 </svg>
@@ -55,23 +79,31 @@ export default function Pagination({ max = 1, basePath, current = 1 }) {
                     e.target.value = val;
                 }
             }}></input>
-            <button className={styles.button} aria-label="前往" onClick={go}>
+            <button className={styles.button} aria-label="前往" onClick={async () => {
+                setLoading(2, true);
+                go();
+            }}>
+                {simpleLoader()}
                 <span style={{ padding: '0 .5rem' }}>前往</span>
             </button>
-            <button className={styles.button} aria-label="下一頁" onClick={() => {
+            <button className={`${styles.button} ${items[3] ? styles.loading : ''}`} aria-label="下一頁" onClick={async () => {
                 if (pagination < max) {
                     setPagination(pagination + 1);
-                    router.push(`${basePath}/${pagination + 1}`);
+                    setLoading(3, true);
+                    await router.push(`${basePath}/${pagination + 1}`);
                 }
             }} disabled={pagination == max}>
+                {simpleLoader()}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.buttonIcon}>
                     <path d="m9 18 6-6-6-6" />
                 </svg>
             </button>
-            <button className={styles.button} aria-label="最後一頁" onClick={() => {
+            <button className={`${styles.button} ${items[4] ? styles.loading : ''}`} aria-label="最後一頁" onClick={async () => {
                 setPagination(max);
-                router.push(`${basePath}/${max}`);
+                setLoading(4, true);
+                await router.push(`${basePath}/${max}`);
             }} disabled={pagination == max}>
+                {simpleLoader()}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.buttonIcon}>
                     <path d="m6 17 5-5-5-5" />
                     <path d="m13 17 5-5-5-5" />
