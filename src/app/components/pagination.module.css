@@ -78,7 +78,7 @@
 }
 
 .simpleLoaderBar {
-    background: #fff;
+    background: currentColor;
     animation: loader var(--duration) linear infinite;
     transform-origin: top;
     position: absolute;

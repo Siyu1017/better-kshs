@@ -107,7 +107,7 @@
     z-index: 9;
     border-top: 1px solid var(--border-color);
     padding: var(--padding-v) var(--padding-h);
-    display: flex;
+    display: none;
     gap: var(--gap);
     flex-direction: column;
     overflow: auto;
@@ -213,5 +213,13 @@
 @media screen and (max-width: 992px) {
     .hamburger {
         display: flex;
+    }
+
+    .mobileMenu {
+        display: flex;
+    }
+
+    .headerMenu {
+        display: none;
     }
 }

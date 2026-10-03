@@ -16,6 +16,13 @@
   --vh: 1vh;
 }
 
+@supports (height: 1dvh) {
+  :root {
+    --vw: 1dvw;
+    --vh: 1dvh;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: rgb(10, 10, 10);

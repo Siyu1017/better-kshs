@@ -2,7 +2,7 @@ import styles from "@/styles/page.default.module.css";
 import Cards from "@/components/cards";
 import items from "@/lib/menuItems.js";
 
-const pages = items['faculty-and-staff']?.submenu || {};
+const pages = items['faculty-and-staff']?.submenu || [];
 
 export default function Page() {
     return null;

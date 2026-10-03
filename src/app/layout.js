@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
+import { Noto_Serif_TC } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/header";
 import NextTopLoader from 'nextjs-toploader';
-import SizeFixer from "./components/sizeFixer";
 
 const headerFont = localFont({
   variable: "--font-header",
@@ -10,10 +10,11 @@ const headerFont = localFont({
   display: 'swap'
 })
 
-const defaultFont = localFont({
+const defaultFont = Noto_Serif_TC({
   variable: "--font-default",
-  src: 'fonts/NotoSerifTC-Regular.ttf',
-  display: 'swap'
+  weight: '400',
+  display: 'swap',
+  preload: false
 })
 
 export const metadata = {
@@ -34,7 +35,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="zh-Hant-TW">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
@@ -42,7 +43,6 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={`${headerFont.variable} ${defaultFont.variable}`}>
-        <SizeFixer />
         <NextTopLoader
           color="rgb(var(--primary-color))"
           showSpinner={false}

@@ -4,24 +4,17 @@ import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./header.module.css";
-import { useMediaQuery } from 'react-responsive';
 import items from "@/lib/menuItems.js";
 
 const menuItems = Object.values(items).filter(item => ['/privacy', '/terms'].includes(item.link) ? false : true);
 
-export default function Header({ title, onOpenMenu }) {
+export default function Header({ title }) {
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
-    const useMobileMenu = useMediaQuery({ query: '(max-width: 992px)' });
     const [menuOpened, setMenuOpened] = useState(false);
     const [openIndexes, setOpenIndexes] = useState(() => {
         return menuItems.map(item => pathname.startsWith(item.link));
     });
-
-    const [isClient, setIsClient] = useState(false);
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     useEffect(() => {
         const app = document.querySelector(".app");
@@ -34,8 +27,6 @@ export default function Header({ title, onOpenMenu }) {
         app.addEventListener('scroll', handler, { passive: true });
         return () => app.removeEventListener('scroll', handler);
     }, []);
-
-    if (!isClient) return null;
 
     const toggleOpen = (index) => {
         setOpenIndexes(prev => {
@@ -51,68 +42,66 @@ export default function Header({ title, onOpenMenu }) {
                 <Link href="/" onClick={() => setMenuOpened(false)}>
                     <div className={styles.headerTitle}>{title}</div>
                 </Link>
-                {useMobileMenu
-                    ? <div className={[styles.mobileMenu, menuOpened ? styles.show : ''].join(' ')}>
-                        {menuItems.map((item, index) => {
-                            const isActive = pathname.startsWith(item.link);
-                            const isOpen = openIndexes[index];
-                            return item.submenu ? (
-                                <div className={styles.mobileMenuItemWithSubmenu} key={index}>
-                                    <div className={[styles.mobileMenuItemSubmenuTrigger, isActive ? styles.active : '', isOpen ? styles.opened : ''].join(' ')} onClick={() => toggleOpen(index)}>
-                                        <div className={styles.mobileMenuItemTitle}>
-                                            <span>{item.title}</span>
-                                        </div>
-                                        <div className={styles.mobileMenuItemExpand}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.mobileMenuItemExpandIcon}>
-                                                <path d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
+                <div className={[styles.mobileMenu, menuOpened ? styles.show : ''].join(' ')}>
+                    {menuItems.map((item, index) => {
+                        const isActive = pathname.startsWith(item.link);
+                        const isOpen = openIndexes[index];
+                        return item.submenu ? (
+                            <div className={styles.mobileMenuItemWithSubmenu} key={index}>
+                                <div className={[styles.mobileMenuItemSubmenuTrigger, isActive ? styles.active : '', isOpen ? styles.opened : ''].join(' ')} onClick={() => toggleOpen(index)}>
+                                    <div className={styles.mobileMenuItemTitle}>
+                                        <span>{item.title}</span>
                                     </div>
-                                    <div className={[styles.mobileMenuItemSubmenu, isOpen ? styles.show : ''].join(' ')}>
-                                        {item.submenu.map((subItem, subIndex) => {
-                                            const isActive = pathname.startsWith(subItem.link);
-                                            return <Link href={subItem.link || '#'} key={subIndex} onClick={() => setMenuOpened(false)} target={subItem.target || ''}>
-                                                <div className={[styles.mobileMenuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
-                                                    <div className={styles.mobileMenuItemTitle}>
-                                                        <span>{subItem.title}</span>
-                                                        {subItem.target == "_blank" ?
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translate(4px, -4px)" }}>
-                                                                <path d="M7 7h10v10" />
-                                                                <path d="M7 17 17 7" />
-                                                            </svg>
-                                                            : ''}
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        })}
+                                    <div className={styles.mobileMenuItemExpand}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.mobileMenuItemExpandIcon}>
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
                                     </div>
                                 </div>
-                            ) : <Link href={item.link || '#'} key={index} onClick={() => setMenuOpened(false)} target={item.target || ''}>
-                                <div className={[styles.mobileMenuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
-                                    <div className={styles.mobileMenuItemTitle}>{item.title}{
-                                        item.target == "_blank" ?
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translate(4px, -4px)" }}>
-                                                <path d="M7 7h10v10" />
-                                                <path d="M7 17 17 7" />
-                                            </svg>
-                                            : ''}</div>
+                                <div className={[styles.mobileMenuItemSubmenu, isOpen ? styles.show : ''].join(' ')}>
+                                    {item.submenu.map((subItem, subIndex) => {
+                                        const isActive = pathname.startsWith(subItem.link);
+                                        return <Link href={subItem.link || '#'} key={subIndex} onClick={() => setMenuOpened(false)} target={subItem.target || ''}>
+                                            <div className={[styles.mobileMenuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
+                                                <div className={styles.mobileMenuItemTitle}>
+                                                    <span>{subItem.title}</span>
+                                                    {subItem.target == "_blank" ?
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translate(4px, -4px)" }}>
+                                                            <path d="M7 7h10v10" />
+                                                            <path d="M7 17 17 7" />
+                                                        </svg>
+                                                        : ''}
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    })}
+                                </div>
+                            </div>
+                        ) : <Link href={item.link || '#'} key={index} onClick={() => setMenuOpened(false)} target={item.target || ''}>
+                            <div className={[styles.mobileMenuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
+                                <div className={styles.mobileMenuItemTitle}>{item.title}{
+                                    item.target == "_blank" ?
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translate(4px, -4px)" }}>
+                                            <path d="M7 7h10v10" />
+                                            <path d="M7 17 17 7" />
+                                        </svg>
+                                        : ''}</div>
+                            </div>
+                        </Link>
+                    })}
+                </div>
+                <div className={styles.headerMenu}>
+                    {menuItems.map((item, index) => {
+                        const isActive = pathname.startsWith(item.link);
+                        return (
+                            <Link href={item.link || '#'} key={index}>
+                                <div className={[styles.menuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
+                                    <div className={styles.menuItemTitle}>{item.title}</div>
                                 </div>
                             </Link>
-                        })}
-                    </div>
-                    : <div className={styles.headerMenu}>
-                        {menuItems.map((item, index) => {
-                            const isActive = pathname.startsWith(item.link);
-                            return (
-                                <Link href={item.link || '#'} key={index}>
-                                    <div className={[styles.menuItem, isActive ? styles.active : ''].filter(Boolean).join(' ')}>
-                                        <div className={styles.menuItemTitle}>{item.title}</div>
-                                    </div>
-                                </Link>
-                            )
-                        })}
-                    </div>
-                }
+                        )
+                    })}
+                </div>
             </div>
             <div className={styles.headerRight}>
                 <Link href="https://github.com/Siyu1017/better-kshs" target="_blank" aria-label="Github Repo">

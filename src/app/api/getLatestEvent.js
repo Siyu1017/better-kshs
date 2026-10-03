@@ -1,8 +1,4 @@
-import fs from "node:fs";
-import path from "node:path";
-import axios from "axios";
 import * as cheerio from 'cheerio';
-import pageData from "@/lib/pageData.json";
 import { redirect } from 'next/navigation'
 
 export default async function getLatestEvent(url) {
@@ -11,33 +7,30 @@ export default async function getLatestEvent(url) {
     const items = [];
     const range = [1, 1];
 
-    async function crawl() {
-        try {
-            const { data } = await axios.get(url);
-            const $ = cheerio.load(data);
+    const res = await fetch(url, {
+        next: { revalidate: 300 },
+        signal: AbortSignal.timeout(8000)
+    });
+    if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
 
-            $('ul.list.news li:not(.list_head)').each((i, item) => {
-                items.push({
-                    pinned: $(item).find('.type_top').length > 0,
-                    title: $(item).find('a').text(),
-                    date: $(item).find('.w15.hidden-xs').text(),
-                    link: `https://www.kshs.kh.edu.tw/latestevent/${$(item).find('a').attr('href')}`
-                })
-            })
+    const $ = cheerio.load(await res.text());
 
-            const pgItems = $('.page-item');
-            const lastElem = pgItems.eq(pgItems.length - 1);
-            const el = $(lastElem).find('.page-link');
-            if (el.length > 0) {
-                const parsers = el.attr('href').split(',');
-                range[1] = Number(parsers[parsers.length - 1]) + 1;
-            }
-        } catch (err) {
-            console.error('Error:', err);
-        }
+    $('ul.list.news li:not(.list_head)').each((i, item) => {
+        items.push({
+            pinned: $(item).find('.type_top').length > 0,
+            title: $(item).find('a').text(),
+            date: $(item).find('.w15.hidden-xs').text(),
+            link: `https://www.kshs.kh.edu.tw/latestevent/${$(item).find('a').attr('href')}`
+        })
+    })
 
-        return { items, range };
+    const pgItems = $('.page-item');
+    const lastElem = pgItems.eq(pgItems.length - 1);
+    const el = $(lastElem).find('.page-link');
+    if (el.length > 0) {
+        const parsers = el.attr('href').split(',');
+        range[1] = Number(parsers[parsers.length - 1]) + 1;
     }
 
-    return await crawl();
+    return { items, range };
 }
